@@ -1,0 +1,23 @@
+{
+  "taxYear": "2026-27",
+  "england": {
+    "file": "england_table10_2026-27.ods",
+    "sheet": "Data_Billing",
+    "name": "Council Tax levels set by local authorities in England 2026 to 2027, Table 10",
+    "publisher": "Ministry of Housing, Communities and Local Government",
+    "pageUrl": "https://www.gov.uk/government/statistics/council-tax-levels-set-by-local-authorities-in-england-2026-to-2027",
+    "fileUrl": "https://assets.publishing.service.gov.uk/media/6a02eeeccd2e0e8b5b20b449/Table_10_2026-27.ods",
+    "licence": "Open Government Licence v3.0",
+    "retrieved": "2026-10-11"
+  },
+  "wales": {
+    "file": "wales_council_tax_levels_2026-27.xlsx",
+    "sheet": "Table1",
+    "name": "Council Tax levels: April 2026 to March 2027, Table 1",
+    "publisher": "Welsh Government",
+    "pageUrl": "https://www.gov.wales/council-tax-levels-april-2026-march-2027",
+    "fileUrl": "https://www.gov.wales/sites/default/files/statistics-and-research/2026-03/council-tax-levels-april-2026-march-2027-153478.xlsx",
+    "licence": "Open Government Licence v3.0",
+    "retrieved": "2026-10-11"
+  }
+}
