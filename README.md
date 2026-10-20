@@ -2,7 +2,8 @@
 
 > Make the true recurring cost of renting a home visible before commitment.
 
-TrueCost provides rental cost intelligence by calculating accurate monthly outgoings starting with Council Tax intelligence across UK local authorities.
+TrueCost calculates the real monthly cost of renting a UK home, starting with
+Council Tax for every billing authority in England and Wales.
 
 ---
 
@@ -10,41 +11,41 @@ TrueCost provides rental cost intelligence by calculating accurate monthly outgo
 
 ```text
 TrueCost/
-├── client/          # Next.js frontend web application (React, Tailwind CSS, TypeScript)
-├── server/          # Express API server (Node.js, TypeScript)
-├── docs/            # Architecture, API specifications, and Council Tax guides
-├── .gitignore
-└── README.md
+├── packages/core/   # Shared calculation rules (bands, discounts, money, provenance)
+├── server/          # Express API + official rate data and importer
+├── client/          # Next.js web app
+└── docs/            # Architecture and council tax rules
 ```
 
 ---
 
 ## Getting Started
 
-### Prerequisites
-- Node.js (v20+ or v24+)
-- npm
+Requires Node.js 20+.
 
-### 1. Running the Backend Server
 ```bash
-cd server
-npm install
-npm run dev
+npm install          # once, from the repo root (npm workspaces)
+npm run dev:server   # API on http://localhost:5000
+npm run dev:client   # Web app on http://localhost:3000
 ```
-The API server will run at `http://localhost:5000`.
 
-### 2. Running the Frontend Web App
+Other commands, run from the root:
+
 ```bash
-cd client
-npm install
-npm run dev
+npm test             # core + server tests
+npm run typecheck    # all workspaces
+npm run import:rates -- 2026-27   # rebuild rates from data/raw/2026-27
 ```
-The web application will run at `http://localhost:3000`.
 
 ---
 
 ## Phase 1 Roadmap: Council Tax Intelligence
-- [x] Initial client & server scaffold
-- [ ] Local Authority rates database & Council Tax Bands (A-H) calculation engine
-- [ ] REST API endpoints for property & band lookup
-- [ ] Interactive Web UI with Single Person Discount and Student Exemption calculations
+- [x] Shared calculation engine: England, Wales (Band I) and Scotland band rules, discounts, 10-instalment billing
+- [x] 2026/27 rates for all 318 billing authorities in England and Wales, imported from official sources
+- [x] Every figure carries its source and confidence
+- [x] Postcode or outward code → council and parish, with exact Band D where the address is outside any parish
+- [x] Form-first web experience: postcode and rent → monthly cost, band and household pickers, sources explained
+- [x] Street search: "Navarino Road, Hackney" or "Mare Street, E8" → council, with a boundary check (needs `OS_API_KEY`)
+- [ ] Likely band from neighbourhood statistics when the listing doesn't show it (VOA open data)
+- [ ] Exact band by address, and listing link support (Rightmove, Zoopla), subject to permission
+- [ ] Energy, water and broadband estimates; save and compare homes
