@@ -1,23 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
 
-:root {
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --color-ink: #16132b;
+  --color-ink-soft: #3d3955;
+  --color-muted: #6b6782;
+  --color-line: #e7e4ee;
+  --color-canvas: #faf9f6;
+
+  --color-brand: #6d28d9;
+  --color-brand-strong: #5b21b6;
+  --color-brand-soft: #f3eeff;
+  --color-brand-line: #ddd0fc;
+
+  /* Confidence colours: one meaning each, used everywhere a figure is labelled. */
+  --color-official: #0f766e;
+  --color-official-soft: #e6f4f1;
+  --color-estimate: #a35207;
+  --color-estimate-soft: #fdf3e5;
+  --color-entered: #475569;
+  --color-entered-soft: #f1f4f8;
+
+  --shadow-card: 0 1px 2px rgb(22 19 43 / 0.04), 0 8px 24px -12px rgb(22 19 43 / 0.12);
 }
 
-body {
-  color: #2e2e2e;
-  background-color: #ffffff;
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-}
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
 
-h1, h2, .font-heading {
-  font-family: var(--font-serif);
-  letter-spacing: -0.02em;
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background: var(--color-brand-soft);
+    color: var(--color-brand-strong);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+
+  /* Hide number spinners; rent is typed, not stepped. */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
 }
