@@ -1,0 +1,147 @@
+{
+ "header": {
+  "totalresults": 45
+ },
+ "results": [
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Hackney",
+    "LOCAL_TYPE": "Other Settlement",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534945.0,
+    "GEOMETRY_Y": 184665.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Hackney Marsh",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "E9",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 537287.0,
+    "GEOMETRY_Y": 185534.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "South Hackney",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "E9",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 535562.0,
+    "GEOMETRY_Y": 184159.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Dalston",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533940.0,
+    "GEOMETRY_Y": 184707.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Haggerston",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "E2",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533964.0,
+    "GEOMETRY_Y": 183423.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Homerton",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "E9",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 536144.0,
+    "GEOMETRY_Y": 184746.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Hoxton",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "N1",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 532851.0,
+    "GEOMETRY_Y": 183095.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Kingsland",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "N1",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533512.0,
+    "GEOMETRY_Y": 184362.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Shacklewell",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533931.0,
+    "GEOMETRY_Y": 185586.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Shoreditch",
+    "LOCAL_TYPE": "Suburban Area",
+    "POSTCODE_DISTRICT": "EC2A",
+    "POPULATED_PLACE": null,
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533022.0,
+    "GEOMETRY_Y": 182380.0
+   }
+  }
+ ]
+}

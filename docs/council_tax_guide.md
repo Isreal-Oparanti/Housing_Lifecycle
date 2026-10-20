@@ -1,27 +1,78 @@
-# UK Council Tax Guide & Calculation Rules
+# UK Council Tax: Rules TrueCost Implements
 
-## How Council Tax Works in the UK
-Council Tax is a local taxation system on domestic properties in England, Scotland, and Wales.
+The rules below are implemented in `packages/core` and covered by its tests.
+Northern Ireland uses domestic rates, not council tax, and is out of scope.
 
-### 1. Valuation Bands
-Each domestic property is assigned a valuation band by the Valuation Office Agency (VOA) in England/Wales, or the Scottish Assessors in Scotland:
+## 1. Bands
 
-- **England & Scotland**: Bands A through H (based on April 1991 capital values).
-  - Band A: up to £40,000 (ratio 6/9 of Band D)
-  - Band B: £40,001 to £52,000 (ratio 7/9)
-  - Band C: £52,001 to £68,000 (ratio 8/9)
-  - Band D: £68,001 to £88,000 (ratio 9/9 — baseline)
-  - Band E: £88,001 to £120,000 (ratio 11/9)
-  - Band F: £120,001 to £160,000 (ratio 13/9)
-  - Band G: £160,001 to £320,000 (ratio 15/9)
-  - Band H: over £320,000 (ratio 18/9)
+Every home is placed in a valuation band. Each band pays a fixed fraction of
+the area's Band D charge.
 
-### 2. Billing & Calculation
-- Local Authorities (LAs) set an annual Band D council tax rate each financial year (April 1 to March 31).
-- Rates for all other bands are fixed statutory multipliers of the Band D rate.
-- Renters pay their annual bill in 10 or 12 monthly installments. TrueCost computes the recurring monthly impact as:
-  $$\text{Monthly Cost} = \frac{\text{Annual Council Tax}}{12}$$
+| Band | England (1991 values) | Wales (2003 values) | Scotland (1991 values, since April 2017) |
+|------|-----------------------|---------------------|------------------------------------------|
+| A    | 6/9                   | 6/9                 | 240/360                                  |
+| B    | 7/9                   | 7/9                 | 280/360                                  |
+| C    | 8/9                   | 8/9                 | 320/360                                  |
+| D    | 9/9                   | 9/9                 | 360/360                                  |
+| E    | 11/9                  | 11/9                | 473/360                                  |
+| F    | 13/9                  | 13/9                | 585/360                                  |
+| G    | 15/9                  | 15/9                | 705/360                                  |
+| H    | 18/9                  | 18/9                | 882/360                                  |
+| I    | n/a                   | 21/9                | n/a                                      |
 
-### 3. Statutory Discounts & Exemptions
-- **Single Person Discount**: 25% discount if only one adult lives in the dwelling.
-- **Student Exemption**: 100% discount if all household members are full-time students.
+Scotland's E–H proportions differ from England's. Scottish bills also include
+water and sewerage charges, which TrueCost does not model yet.
+
+## 2. What makes up Band D
+
+The Band D charge for an address is the sum of every body that precepts on it:
+
+- the billing authority (district, borough, unitary or Welsh county council)
+- parish, town or community council precepts, which differ from parish to parish
+- the county council or Greater London Authority
+- police, fire, and combined authority precepts
+
+Government tables publish an **area average** Band D for each billing
+authority. In 81 of the 318 authorities in England and Wales there are no
+parish precepts or special expenses, so the average is the exact charge. In
+the rest the exact charge depends on the parish, and TrueCost labels the
+figure as an estimate (`AuthorityRate.variesWithinArea`).
+
+## 3. Discounts and exemptions
+
+Full-time students are disregarded when counting adults:
+
+- **Everyone is a full-time student**: exempt (100%).
+- **One adult counts**: 25% single person discount. This includes one worker
+  living with students.
+- **Two or more count**: full charge.
+
+Not modelled yet: other disregarded groups (apprentices, carers, severe mental
+impairment, some care leavers), means-tested Council Tax Reduction schemes, and
+rooms in a house in multiple occupation, where the landlord is usually liable.
+
+## 4. Billing
+
+The tax year runs 1 April to 31 March. Councils bill in **10 monthly
+instalments** (April to January) unless the resident asks for 12. TrueCost
+shows the 12-month average for budgeting and the approximate 10-month
+instalment the renter will actually see.
+
+## 5. Data sources
+
+All Open Government Licence. Raw files and their URLs are kept in
+`server/data/raw/<tax year>/` so every figure can be traced.
+
+| Nation  | Source | Published |
+|---------|--------|-----------|
+| England | MHCLG, *Council Tax levels set by local authorities*, Table 10 | late March |
+| Wales   | Welsh Government, *Council Tax levels*, Table 1 | late March |
+
+### Updating for a new tax year
+
+1. Download the new files into `server/data/raw/<year>/` and write its `sources.json`.
+2. `npm run import:rates -- <year>`. It fails if columns move or components don't add up.
+3. Point `server/src/data/rates/index.ts` at the new JSON and update the tests.
+
+Until step 3 is done the API returns `isCurrentYear: false` and the UI warns
+that the rates are last year's.

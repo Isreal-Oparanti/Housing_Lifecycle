@@ -1,0 +1,357 @@
+{
+ "header": {
+  "totalresults": 3259
+ },
+ "results": [
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Navarino Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": "Hackney",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534451.0,
+    "GEOMETRY_Y": 184789.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Navarino Road",
+    "LOCAL_TYPE": "Section Of Named Road",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": "Hackney",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534451.0,
+    "GEOMETRY_Y": 184789.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Navarino Road",
+    "LOCAL_TYPE": "Section Of Named Road",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534343.0,
+    "GEOMETRY_Y": 185046.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Navarino Grove",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": "Hackney",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534500.0,
+    "GEOMETRY_Y": 184856.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Abbeville Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N8",
+    "POPULATED_PLACE": "Hornsey",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 529793.0,
+    "GEOMETRY_Y": 189006.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Abbotshade Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "SE16",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Southwark",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 535797.0,
+    "GEOMETRY_Y": 180390.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Abercrombie Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E20",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Newham",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 537888.0,
+    "GEOMETRY_Y": 185351.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Aberdeen Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N5",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Islington",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 532166.0,
+    "GEOMETRY_Y": 185813.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Abersham Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533949.0,
+    "GEOMETRY_Y": 185302.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Acer Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E8",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533878.0,
+    "GEOMETRY_Y": 184498.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Adams Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N17",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533000.0,
+    "GEOMETRY_Y": 190272.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Addington Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E16",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Newham",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 539368.0,
+    "GEOMETRY_Y": 182138.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Addington Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N4",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 531071.0,
+    "GEOMETRY_Y": 188000.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Adelaide Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "NW3",
+    "POPULATED_PLACE": "Hampstead",
+    "DISTRICT_BOROUGH": "Camden",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 527381.0,
+    "GEOMETRY_Y": 184312.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Adolphus Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N4",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 531890.0,
+    "GEOMETRY_Y": 187088.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Ainsworth Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E9",
+    "POPULATED_PLACE": "Hackney",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 535283.0,
+    "GEOMETRY_Y": 184100.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Albany Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N4",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 531036.0,
+    "GEOMETRY_Y": 188027.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Albert Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N4",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 530887.0,
+    "GEOMETRY_Y": 187500.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Albert Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N15",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 533065.0,
+    "GEOMETRY_Y": 188297.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Albert Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N22",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 529493.0,
+    "GEOMETRY_Y": 190821.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Albion Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N17",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534004.0,
+    "GEOMETRY_Y": 190206.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Alconbury Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E5",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Hackney",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 534246.0,
+    "GEOMETRY_Y": 186537.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Aldworth Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "E15",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Newham",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 539157.0,
+    "GEOMETRY_Y": 184212.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Alexander Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N19",
+    "POPULATED_PLACE": "London",
+    "DISTRICT_BOROUGH": "Islington",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 530265.0,
+    "GEOMETRY_Y": 186515.0
+   }
+  },
+  {
+   "GAZETTEER_ENTRY": {
+    "NAME1": "Alexandra Road",
+    "LOCAL_TYPE": "Named Road",
+    "POSTCODE_DISTRICT": "N8",
+    "POPULATED_PLACE": "Hornsey",
+    "DISTRICT_BOROUGH": "Haringey",
+    "COUNTY_UNITARY": "Greater London",
+    "REGION": "London",
+    "COUNTRY": "England",
+    "GEOMETRY_X": 531128.0,
+    "GEOMETRY_Y": 189798.0
+   }
+  }
+ ]
+}
