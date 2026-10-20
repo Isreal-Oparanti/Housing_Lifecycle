@@ -1,0 +1,18 @@
+{
+  "name": "@truecost/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrueCost calculation rules shared by the API and web app. Pure functions, no I/O.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.11"
+  }
+}

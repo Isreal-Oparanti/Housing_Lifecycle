@@ -1,0 +1,16 @@
+{
+  "name": "truecost",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev -w truecost-server",
+    "dev:client": "npm run dev -w truecost-client",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "import:rates": "npm run import:rates -w truecost-server"
+  }
+}
