@@ -7,4 +7,5 @@ export * from "./rates.ts";
 export * from "./postcode.ts";
 export * from "./address.ts";
 export * from "./geo.ts";
+export * from "./compare.ts";
 export * from "./api.ts";

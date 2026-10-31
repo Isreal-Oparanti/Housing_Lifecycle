@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SavedHomesLink } from "./homes/SavedHomesLink";
 import { Logo } from "./Logo";
 
 export function SiteHeader() {
@@ -13,6 +14,7 @@ export function SiteHeader() {
           <Link href="/#sources" className="hidden rounded-lg px-3 py-2 hover:text-ink sm:block">
             Sources
           </Link>
+          <SavedHomesLink />
           <Link
             href="/#check"
             className="rounded-lg bg-ink px-3.5 py-2 text-white transition-colors hover:bg-ink-soft"

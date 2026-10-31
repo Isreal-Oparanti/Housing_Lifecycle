@@ -14,6 +14,14 @@ import { authoritySummary as summary, bandDFigure } from "../services/figures.js
 
 const router = Router();
 
+// GET /api/council-tax/year
+// Which tax year's rates are loaded. Saved homes keep a snapshot of their rates and
+// only need looking up again when this changes.
+router.get("/year", (_req: Request, res: Response) => {
+  const { taxYear, isCurrentYear } = rateTable();
+  res.json({ taxYear, isCurrentYear });
+});
+
 // GET /api/council-tax/authorities
 router.get("/authorities", (_req: Request, res: Response) => {
   const { taxYear, isCurrentYear, authorities } = rateTable();

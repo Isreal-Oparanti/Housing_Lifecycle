@@ -3,8 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { RotateCw } from "lucide-react";
 import { bandsFor, parseBand, placeLabel, type LookupResponse } from "@truecost/core";
+import { SaveHome } from "@/components/homes/SaveHome";
 import { lookup } from "@/lib/api";
 import { checkHref, parseRent, type CheckParams } from "@/lib/check";
+import { getSavedHomes, setSavedHomes, withHomeUpdated } from "@/lib/savedHomes";
 import { BandPicker } from "./BandPicker";
 import { CouncilChooser } from "./CouncilChooser";
 import { Explanation } from "./Explanation";
@@ -56,7 +58,7 @@ export function CostReport({ initial }: { initial: CheckParams }) {
   return (
     <main className="mx-auto max-w-6xl px-4 pb-32 pt-6 sm:px-6 lg:pb-20 lg:pt-10">
       <div className="max-w-xl">
-        <SearchBar key={params.q} value={params.q} onSearch={(q) => update({ q, authority: "" })} />
+        <SearchBar key={params.q} value={params.q} onSearch={(q) => update({ q, authority: "", saved: "" })} />
       </div>
 
       {state.kind === "empty" && (
@@ -104,6 +106,20 @@ function Result({
   const band = resolved ? parseBand(nation, params.band) : undefined;
   const rent = parseRent(params.rent);
   const bandCosts = useMemo(() => (resolved ? monthlyByBand(nation, bandD, params.who) : {}), [resolved, nation, bandD, params.who]);
+
+  // When this check is a saved home, keep the saved copy in step with what's on screen,
+  // including a fresh rates snapshot after a new tax year is loaded.
+  useEffect(() => {
+    if (!params.saved || !resolved) return;
+    const homes = getSavedHomes();
+    const home = homes.find((saved) => saved.id === params.saved);
+    if (!home) return;
+    const check = { q: params.q, rent: params.rent, band: params.band, who: params.who, authority: resolved.authority.gssCode };
+    const snapshot = { place: resolved.place, authority: resolved.authority, bandD: resolved.bandD, taxYear: resolved.taxYear };
+    if (JSON.stringify(home.check) !== JSON.stringify(check) || JSON.stringify(home.snapshot) !== JSON.stringify(snapshot)) {
+      setSavedHomes(withHomeUpdated(homes, home.id, { check, snapshot }));
+    }
+  }, [params.saved, params.q, params.rent, params.band, params.who, resolved]);
 
   if (data.status === "invalid" || data.status === "not_found") {
     return (
@@ -165,7 +181,7 @@ function Result({
       </header>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start">
-        <div className="lg:sticky lg:top-24 lg:col-start-2 lg:row-start-1">
+        <div className="space-y-4 lg:sticky lg:top-24 lg:col-start-2 lg:row-start-1">
           <Summary
             authorityName={authority.name}
             taxYear={data.taxYear}
@@ -173,6 +189,11 @@ function Result({
             bandD={data.bandD}
             outcome={outcome}
             rent={rent}
+          />
+          <SaveHome
+            resolved={{ place, authority, bandD: data.bandD, taxYear: data.taxYear }}
+            params={params}
+            onSavedChange={(saved) => update({ saved })}
           />
         </div>
 

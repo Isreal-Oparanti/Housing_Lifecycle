@@ -13,6 +13,19 @@ export const HOUSEHOLDS: Record<Occupancy, Household | null> = {
 
 const OCCUPANCIES = Object.keys(HOUSEHOLDS) as Occupancy[];
 
+export function isOccupancy(value: unknown): value is Occupancy {
+  return typeof value === "string" && (OCCUPANCIES as string[]).includes(value);
+}
+
+export const OCCUPANCY_LABELS: Record<Occupancy, string> = {
+  adults: "Two or more adults",
+  single: "Just me",
+  students: "All full-time students",
+  room: "Room in a shared house",
+};
+
+const SAVED_ID = /^[a-z0-9-]{8,40}$/i;
+
 /** Everything on the results page lives in the URL, so a check can be refreshed, bookmarked or shared. */
 export interface CheckParams {
   q: string;
@@ -21,6 +34,8 @@ export interface CheckParams {
   who: Occupancy;
   /** The council the renter picked when an outward code covers several. */
   authority: string;
+  /** Set when this check is a saved home, so edits are saved to it. */
+  saved: string;
 }
 
 type SearchParams = Record<string, string | string[] | undefined>;
@@ -37,6 +52,7 @@ export function readCheckParams(search: SearchParams): CheckParams {
     band: first(search.band).toUpperCase().slice(0, 1),
     who: OCCUPANCIES.includes(who) ? who : "adults",
     authority: first(search.authority).slice(0, 12),
+    saved: SAVED_ID.test(first(search.saved)) ? first(search.saved) : "",
   };
 }
 
