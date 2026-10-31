@@ -9,7 +9,8 @@
     "build": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "import:rates": "tsx scripts/import-rates.ts"
+    "import:rates": "tsx scripts/import-rates.ts",
+    "check:council-names": "tsx scripts/check-council-names.ts"
   },
   "keywords": [
     "truecost",

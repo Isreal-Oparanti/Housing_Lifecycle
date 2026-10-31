@@ -1,5 +1,8 @@
 # TrueCost (Housing Lifecycle)
 
+**Documentation:** [docs/README.md](docs/README.md): features, the build journey and fixes,
+decisions, API, data sources and the runbook.
+
 > Make the true recurring cost of renting a home visible before commitment.
 
 TrueCost calculates the real monthly cost of renting a UK home, starting with
@@ -48,4 +51,6 @@ npm run import:rates -- 2026-27   # rebuild rates from data/raw/2026-27
 - [x] Street search: "Navarino Road, Hackney" or "Mare Street, E8" → council, with a boundary check (needs `OS_API_KEY`)
 - [ ] Likely band from neighbourhood statistics when the listing doesn't show it (VOA open data)
 - [ ] Exact band by address, and listing link support (Rightmove, Zoopla), subject to permission
-- [ ] Energy, water and broadband estimates; save and compare homes
+- [x] Save and compare homes: ranked by real monthly cost, side by side, kept on the device
+- [ ] Energy estimates from EPC data (next)
+- [ ] Water and broadband estimates

@@ -37,3 +37,8 @@ export function formatGBP(pence: Pence): string {
 export function formatGBPWhole(pence: Pence): string {
   return gbpWhole.format(Math.round(pence / 100));
 }
+
+/** £50 for whole pounds, £24.88 otherwise. For amounts inside sentences. */
+export function formatGBPCompact(pence: Pence): string {
+  return pence % 100 === 0 ? gbpWhole.format(pence / 100) : gbp.format(pence / 100);
+}

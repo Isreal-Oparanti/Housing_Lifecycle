@@ -26,6 +26,14 @@ export async function lookup(query: string, authority: string | undefined, signa
   throw new Error((body as { message?: string } | null)?.message ?? UNREACHABLE);
 }
 
+/** The tax year of the rates the API has loaded, e.g. "2026-27". */
+export async function getRatesYear(signal?: AbortSignal): Promise<string> {
+  const { ok, body } = await getJson("/api/council-tax/year", signal);
+  const taxYear = (body as { taxYear?: unknown } | null)?.taxYear;
+  if (!ok || typeof taxYear !== "string") throw new Error(UNREACHABLE);
+  return taxYear;
+}
+
 export interface AuthorityDetail {
   taxYear: string;
   authority: AuthorityRate;
