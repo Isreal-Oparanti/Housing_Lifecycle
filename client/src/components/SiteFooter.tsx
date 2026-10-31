@@ -1,4 +1,4 @@
-import { Logo } from "./SiteHeader";
+import { Logo } from "./Logo";
 
 export function SiteFooter() {
   return (
