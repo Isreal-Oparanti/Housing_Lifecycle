@@ -7,10 +7,10 @@ import {
   type LookupResult,
   type Place,
 } from "@truecost/core";
-import { PostcodeDirectoryUnavailable, type PostcodeDirectory } from "../adapters/postcodesIo.js";
-import { StreetDirectoryUnavailable, type MapBox, type RoadMatch, type StreetDirectory } from "../adapters/osNames.js";
-import { findAuthority, findAuthorityByName } from "../data/rates/index.js";
-import { authoritySummary, bandDFigure } from "./figures.js";
+import { PostcodeDirectoryUnavailable, type PostcodeDirectory } from "../adapters/postcodesIo";
+import { StreetDirectoryUnavailable, type MapBox, type RoadMatch, type StreetDirectory } from "../adapters/osNames";
+import { findAuthority, findAuthorityByName } from "../data/rates/index";
+import { authoritySummary, bandDFigure } from "./figures";
 
 const SUPPORTED_COUNTRIES = new Set(["England", "Wales"]);
 

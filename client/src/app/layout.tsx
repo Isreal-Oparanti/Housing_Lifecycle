@@ -7,7 +7,14 @@ import "./globals.css";
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap", axes: ["opsz"] });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
+// Absolute address used for the link-preview image. On Vercel this is the production domain;
+// set NEXT_PUBLIC_SITE_URL to override it (for example with a custom domain).
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "TrueCost: the real monthly cost of a rental",
   description:
     "Enter a postcode and rent from any listing to see the real monthly cost, with this year's official council tax for every council in England and Wales.",

@@ -1,5 +1,5 @@
 /**
- * Builds src/data/rates/<year>.json from the official spreadsheets in
+ * Builds src/server/data/rates/<year>.json from the official spreadsheets in
  * data/raw/<year>/, as described by data/raw/<year>/sources.json.
  *
  * Run once a year, after MHCLG and the Welsh Government publish the new
@@ -15,7 +15,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { poundsToPence, type AuthorityRate, type Source, type TaxYear } from "@truecost/core";
-import { readOdsSheet, readXlsxSheet, type Sheet } from "./lib/spreadsheet.js";
+import { readOdsSheet, readXlsxSheet, type Sheet } from "./lib/spreadsheet";
 
 interface SourceEntry {
   file: string;
@@ -37,7 +37,7 @@ interface Manifest {
 /** Components may be off by a penny or two from the total because each is rounded separately. */
 const ROUNDING_TOLERANCE_PENCE = 2;
 
-const serverRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 function normalise(text: string): string {
   return text.replace(/\s+/g, " ").trim();
@@ -210,7 +210,7 @@ function main(): void {
     process.exit(1);
   }
 
-  const rawDir = join(serverRoot, "data", "raw", taxYear);
+  const rawDir = join(appRoot, "data", "raw", taxYear);
   const manifest = JSON.parse(readFileSync(join(rawDir, "sources.json"), "utf8")) as Manifest;
   if (manifest.taxYear !== taxYear) throw new Error(`sources.json is for ${manifest.taxYear}, not ${taxYear}`);
 
@@ -221,7 +221,7 @@ function main(): void {
   const codes = new Set(authorities.map((a) => a.gssCode));
   if (codes.size !== authorities.length) throw new Error("Duplicate GSS codes in output");
 
-  const outDir = join(serverRoot, "src", "data", "rates");
+  const outDir = join(appRoot, "src", "server", "data", "rates");
   mkdirSync(outDir, { recursive: true });
   const outFile = join(outDir, `${taxYear}.json`);
   const output = {

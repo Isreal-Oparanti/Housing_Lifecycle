@@ -7,17 +7,17 @@ import {
   type RoadMatch,
   type Settlement,
   type StreetDirectory,
-} from "../adapters/osNames.js";
+} from "../adapters/osNames";
 import {
   PostcodeDirectoryUnavailable,
   type NearbyPostcode,
   type OutcodeRecord,
   type PostcodeDirectory,
-} from "../adapters/postcodesIo.js";
+} from "../adapters/postcodesIo";
 import kingslandFixture from "../adapters/__fixtures__/roads-kingsland-hackney.json" with { type: "json" };
 import navarinoFixture from "../adapters/__fixtures__/roads-navarino-hackney.json" with { type: "json" };
 import hackneyFixture from "../adapters/__fixtures__/settlements-hackney.json" with { type: "json" };
-import { createLocator } from "./locate.js";
+import { createLocator } from "./locate";
 
 // Real OS Names responses for Hackney, trimmed to the fields we read.
 const navarinoRoads = parseRoads(navarinoFixture);

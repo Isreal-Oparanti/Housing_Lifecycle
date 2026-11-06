@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { findAuthority, rateTable } from "./index.js";
+import { findAuthority, rateTable } from "./index";
 
 const { authorities, taxYear } = rateTable();
 

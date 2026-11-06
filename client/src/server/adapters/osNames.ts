@@ -9,7 +9,7 @@
  * (British National Grid metres) and feature type, so callers search a box
  * around a known point and filter the results themselves.
  */
-import { TtlCache } from "./cache.js";
+import { TtlCache } from "./cache";
 
 export interface MapBox {
   minEasting: number;

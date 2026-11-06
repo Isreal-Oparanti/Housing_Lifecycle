@@ -10,16 +10,18 @@
  * counties are expected) and any of our councils that no OS spelling reaches,
  * which is the real problem to fix in findAuthorityByName.
  *
- * Needs OS_API_KEY in server/.env. Makes about 320 requests at roughly six a
+ * Needs OS_API_KEY in client/.env.local. Makes about 320 requests at roughly six a
  * second, so it needs a live OS project (600 a minute); a development project
  * (50 a minute) may be throttled, and throttled searches are reported as warnings.
  */
-import "dotenv/config";
-import { findAuthorityByName, rateTable } from "../src/data/rates/index.js";
+import { config } from "dotenv";
+
+config({ path: ".env.local" });
+import { findAuthorityByName, rateTable } from "../src/server/data/rates";
 
 const key = process.env.OS_API_KEY;
 if (!key) {
-  console.error("OS_API_KEY is not set in server/.env");
+  console.error("OS_API_KEY is not set in client/.env.local");
   process.exit(1);
 }
 
@@ -78,7 +80,7 @@ async function main(): Promise<void> {
   for (const authority of unreached) console.log(`  - ${authority.name} (${authority.gssCode})`);
 
   if (unreached.length > 0) {
-    console.log("\nAdd the OS spelling for these to nameCandidates in server/src/data/rates/index.ts.");
+    console.log("\nAdd the OS spelling for these to nameCandidates in client/src/server/data/rates/index.ts.");
     process.exit(1);
   }
 }
