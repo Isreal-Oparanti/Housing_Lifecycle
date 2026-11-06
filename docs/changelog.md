@@ -119,6 +119,14 @@ tax and bills.
 It's used in the header and footer, the browser tab icon, the iPhone home-screen icon and the
 link-preview image, which didn't exist before. See [brand.md](brand.md).
 
+## One app instead of two (6 November)
+
+The separate Express API was folded into the Next.js app (see
+[decisions.md](decisions.md#d18-one-nextjs-app-the-api-lives-in-route-handlers)). Express, CORS and
+the second package are gone; the API is `client/src/app/api/*`. All 181 tests pass in their new
+location, and the rates importer regenerates `2026-27.json` byte for byte from its new home. A
+missing `metadataBase` was also fixed so link previews use the real domain, not `localhost`.
+
 ## Committed (20 October)
 
 Branch `feat/council-tax-engine-and-street-search`, in four commits covering core, server, client

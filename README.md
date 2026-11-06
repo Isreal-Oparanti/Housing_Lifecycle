@@ -15,8 +15,7 @@ Council Tax for every billing authority in England and Wales.
 ```text
 TrueCost/
 ├── packages/core/   # Shared calculation rules (bands, discounts, money, provenance)
-├── server/          # Express API + official rate data and importer
-├── client/          # Next.js web app
+├── client/          # The whole app: Next.js website and its API routes (src/app/api), rates data, scripts
 └── docs/            # Architecture and council tax rules
 ```
 
@@ -28,14 +27,13 @@ Requires Node.js 20+.
 
 ```bash
 npm install          # once, from the repo root (npm workspaces)
-npm run dev:server   # API on http://localhost:5000
-npm run dev:client   # Web app on http://localhost:3000
+npm run dev          # Website and API on http://localhost:3000
 ```
 
 Other commands, run from the root:
 
 ```bash
-npm test             # core + server tests
+npm test             # all tests
 npm run typecheck    # all workspaces
 npm run import:rates -- 2026-27   # rebuild rates from data/raw/2026-27
 ```
