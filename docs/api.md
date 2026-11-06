@@ -1,6 +1,6 @@
 # API reference
 
-Base URL in development: `http://localhost:5000/api`. All responses are JSON. Money is in **whole
+The API is part of the Next.js app, so it lives at the same address as the website: `http://localhost:3000/api` in development. All responses are JSON. Money is in **whole
 pence** (`206030` = £2,060.30). Every response includes `taxYear` and `isCurrentYear`.
 
 Types are defined once, in [`packages/core/src/api.ts`](../packages/core/src/api.ts), and shared

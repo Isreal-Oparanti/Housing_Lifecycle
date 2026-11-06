@@ -1,6 +1,7 @@
 import type { AuthorityRate, LookupResponse, Pence, Sourced } from "@truecost/core";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+// The API is part of this app (src/app/api), so requests go to the same address the page came from.
+export const API_URL = "";
 
 const UNREACHABLE = "We couldn't reach TrueCost. Check your connection and try again.";
 

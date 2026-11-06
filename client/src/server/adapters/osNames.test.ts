@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { createOsNames, StreetDirectoryUnavailable } from "./osNames.js";
+import { createOsNames, StreetDirectoryUnavailable } from "./osNames";
 
 const KEY = "test-key-123";
 

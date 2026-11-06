@@ -19,7 +19,7 @@ of the website carries the required attributions.
   - the number of precepting parishes;
   - special expenses.
 - **How:** downloaded once a year into
-  [`server/data/raw/2026-27/`](../server/data/raw/2026-27), then imported (see
+  [`client/data/raw/2026-27/`](../client/data/raw/2026-27), then imported (see
   [runbook.md](runbook.md#update-rates-each-april)).
 - **Watch out for:**
   - the published Band D is an **average** wherever there are parishes or special expenses;

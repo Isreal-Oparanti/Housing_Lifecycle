@@ -6,21 +6,21 @@ An npm workspaces monorepo:
 
 ```
 TrueCost/
-├── packages/core/          # @truecost/core: calculation rules shared by API and web
-│   └── src/                # bands, household discounts, money (pence), provenance, rate types
-├── server/                 # Express API (TypeScript, run with tsx)
+├── packages/core/          # @truecost/core: calculation rules shared by the API and the website
+│   └── src/                # bands, household discounts, money (pence), provenance, address parsing,
+│                           # grid coordinates, comparison ranking, API types
+├── client/                 # The whole app: one Next.js 16 project (Tailwind 4)
 │   ├── data/raw/<year>/    # Official source spreadsheets + sources.json manifest
-│   ├── scripts/            # import-rates.ts: raw spreadsheets → src/data/rates/<year>.json
+│   ├── scripts/            # import-rates.mts, check-council-names.mts
 │   └── src/
-│       ├── adapters/       # External data sources (postcodes.io), behind narrow interfaces
-│       ├── data/rates/     # Generated rate tables and the loader
-│       ├── services/       # Location lookup, figures with provenance
-│       └── routes/         # /api/health, /api/lookup, /api/council-tax
-├── client/                 # Next.js 16 web app (Tailwind 4)
-│   └── src/
-│       ├── app/            # / (landing with the form), /check (results)
-│       ├── components/     # report/ holds the results page pieces
-│       └── lib/            # API client, URL state for /check
+│       ├── app/            # Pages: / (form), /check (results), /homes (saved homes)
+│       │   └── api/        # API routes: /api/lookup, /api/council-tax/*, /api/health
+│       ├── server/         # Server-only code used by the API routes
+│       │   ├── adapters/   # External data sources (postcodes.io, Ordnance Survey)
+│       │   ├── data/rates/ # Generated rate tables and the loader
+│       │   └── services/   # Location lookup, figures with provenance
+│       ├── components/     # report/ (results page) and homes/ (saved homes)
+│       └── lib/            # API client, URL state, saved-homes storage
 └── docs/
 ```
 
@@ -73,7 +73,7 @@ deliberately not integrated until permission or a licence is in place.
 
 ## API
 
-Base URL in development: `http://localhost:5000/api`
+Same address as the website. In development: `http://localhost:3000/api`
 
 | Endpoint | Purpose |
 |----------|---------|
@@ -86,5 +86,4 @@ Every response includes `taxYear` and `isCurrentYear`.
 
 ## Configuration
 
-- `server/.env`: `PORT`, `CORS_ORIGIN` (comma-separated)
-- `client`: `NEXT_PUBLIC_API_URL` (defaults to `http://localhost:5000`)
+- `client/.env.local`: `OS_API_KEY` (street search), optional `NEXT_PUBLIC_SITE_URL`, `POSTCODES_IO_URL`

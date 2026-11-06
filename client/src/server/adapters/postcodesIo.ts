@@ -6,7 +6,7 @@
  * data © Royal Mail copyright and database right. Source: Office for National
  * Statistics, licensed under the Open Government Licence v3.0.
  */
-import { TtlCache } from "./cache.js";
+import { TtlCache } from "./cache";
 
 export interface PostcodeRecord {
   postcode: string;

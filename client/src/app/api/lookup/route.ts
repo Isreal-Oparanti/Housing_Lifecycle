@@ -1,10 +1,9 @@
-import { Router, Request, Response } from "express";
-import { createOsNames, StreetDirectoryUnavailable } from "../adapters/osNames.js";
-import { createPostcodesIo, PostcodeDirectoryUnavailable } from "../adapters/postcodesIo.js";
-import { rateTable } from "../data/rates/index.js";
-import { createLocator } from "../services/locate.js";
+import { createOsNames, StreetDirectoryUnavailable } from "@/server/adapters/osNames";
+import { createPostcodesIo, PostcodeDirectoryUnavailable } from "@/server/adapters/postcodesIo";
+import { rateTable } from "@/server/data/rates";
+import { createLocator } from "@/server/services/locate";
 
-const router = Router();
+export const dynamic = "force-dynamic";
 
 // Street search needs a free OS Data Hub key (OS Names API). Without one the
 // service still works from postcodes and outward codes.
@@ -18,24 +17,25 @@ const STATUS_CODES = { resolved: 200, multiple_councils: 200, unsupported: 200, 
 // GET /api/lookup?q=Navarino%20Road,%20Hackney      (street and town)
 // GET /api/lookup?q=Mare%20Street,%20E8             (street and outward code)
 // GET /api/lookup?q=E8&authority=E09000012          (renter picked one of several councils)
-router.get("/", async (req: Request, res: Response): Promise<void> => {
-  const query = String(req.query.q ?? "").slice(0, 200);
-  const authority = req.query.authority ? String(req.query.authority) : undefined;
+export async function GET(request: Request) {
+  const query = new URL(request.url).searchParams;
+  const q = (query.get("q") ?? "").slice(0, 200);
+  const authority = query.get("authority") ?? undefined;
   try {
-    const result = await locate(query, authority);
+    const result = await locate(q, authority || undefined);
     const { taxYear, isCurrentYear } = rateTable();
-    res.status(STATUS_CODES[result.status]).json({ taxYear, isCurrentYear, ...result });
+    return Response.json({ taxYear, isCurrentYear, ...result }, { status: STATUS_CODES[result.status] });
   } catch (error) {
-    // Express 4 doesn't catch async errors, so every failure must end the response here.
     console.error(error instanceof Error ? error.message : error);
     const unavailable = error instanceof PostcodeDirectoryUnavailable || error instanceof StreetDirectoryUnavailable;
-    res.status(unavailable ? 502 : 500).json({
-      status: "error",
-      message: unavailable
-        ? "Our address lookup isn't responding. Try again in a minute."
-        : "Something went wrong looking up that address.",
-    });
+    return Response.json(
+      {
+        status: "error",
+        message: unavailable
+          ? "Our address lookup isn't responding. Try again in a minute."
+          : "Something went wrong looking up that address.",
+      },
+      { status: unavailable ? 502 : 500 },
+    );
   }
-});
-
-export default router;
+}

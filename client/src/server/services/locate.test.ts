@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import type { OutcodeRecord, PostcodeDirectory, PostcodeRecord } from "../adapters/postcodesIo.js";
-import { findAuthorityByName } from "../data/rates/index.js";
-import { createLocator } from "./locate.js";
+import type { OutcodeRecord, PostcodeDirectory, PostcodeRecord } from "../adapters/postcodesIo";
+import { findAuthorityByName } from "../data/rates/index";
+import { createLocator } from "./locate";
 
 // Shapes copied from real postcodes.io responses.
 const postcodes: Record<string, PostcodeRecord> = {

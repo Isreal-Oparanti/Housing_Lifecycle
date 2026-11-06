@@ -52,8 +52,8 @@ made-up number is never shown.
 ## D5. Rates come from the official spreadsheets, through a checked importer
 
 **Decision:** the raw government files are kept in the repo under
-[`server/data/raw/<year>/`](../server/data/raw/2026-27), with a `sources.json` recording the URL and
-the date each was downloaded. An importer turns them into `server/src/data/rates/<year>.json`.
+[`client/data/raw/<year>/`](../client/data/raw/2026-27), with a `sources.json` recording the URL and
+the date each was downloaded. An importer turns them into `client/src/server/data/rates/<year>.json`.
 
 **Why:**
 - Every figure can be traced back to its source file.
@@ -77,9 +77,9 @@ labelled **official** only when:
 
 Everything else is labelled an **estimate**, with a note explaining why.
 
-## D7. Keep a separate API server
+## D7. Keep a separate API server (superseded by D18)
 
-**Decision:** keep the Express API instead of moving it into Next.js route handlers.
+**Decision at the time:** keep the Express API instead of moving it into Next.js route handlers.
 
 **Why:**
 - The browser extension (PRD §8.6) will need the same API.
@@ -176,3 +176,23 @@ Homes are ranked by rent plus every known cost. Homes missing a band or rent are
 rather than guessed. The one sentence we add, "costs £24.88 a month less … even though its rent is
 £50 higher", appears only when the cheapest home by real cost isn't the one with the lowest rent.
 That is the product's core insight, so it isn't repeated when it doesn't apply.
+
+## D18. One Next.js app: the API lives in route handlers
+
+**Decision:** the API moved from a separate Express server into Next.js route handlers
+(`client/src/app/api/*`). The server code (adapters, rates, location service) lives in
+`client/src/server/`. One project, one deployment.
+
+**Why:**
+- The project is small, and two deployments (website and API) were extra work for no benefit.
+  D7's reasons didn't hold up: a browser extension can call these routes just as well, and a lookup
+  takes about 3 seconds, well within a serverless function's limits.
+- Same address for page and API: no CORS, no API address to configure.
+- Deploys on Vercel as one project.
+
+**Cost:**
+- The in-memory lookup cache resets whenever a serverless instance restarts.
+- The extension, when built, will need CORS headers on the routes.
+
+**What moved:** `server/src/*` to `client/src/server/*`, `server/data/raw` to `client/data/raw`, the
+import scripts to `client/scripts/*.mts`. The API key now lives in `client/.env.local`.

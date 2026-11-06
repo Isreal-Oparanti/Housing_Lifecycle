@@ -61,7 +61,7 @@ instalment the renter will actually see.
 ## 5. Data sources
 
 All Open Government Licence. Raw files and their URLs are kept in
-`server/data/raw/<tax year>/` so every figure can be traced.
+`client/data/raw/<tax year>/` so every figure can be traced.
 
 | Nation  | Source | Published |
 |---------|--------|-----------|
@@ -70,9 +70,9 @@ All Open Government Licence. Raw files and their URLs are kept in
 
 ### Updating for a new tax year
 
-1. Download the new files into `server/data/raw/<year>/` and write its `sources.json`.
+1. Download the new files into `client/data/raw/<year>/` and write its `sources.json`.
 2. `npm run import:rates -- <year>`. It fails if columns move or components don't add up.
-3. Point `server/src/data/rates/index.ts` at the new JSON and update the tests.
+3. Point `client/src/server/data/rates/index.ts` at the new JSON and update the tests.
 
 Until step 3 is done the API returns `isCurrentYear: false` and the UI warns
 that the rates are last year's.
